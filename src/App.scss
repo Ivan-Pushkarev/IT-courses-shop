@@ -1,0 +1,218 @@
+body {
+	background-color: #282c34;
+}
+.App {
+	text-align: center;
+	box-sizing: border-box;
+	width: 60%;
+	margin: 0 auto;
+	font-family: Roboto, sans-serif;
+	background-color: white;
+}
+header {
+	background: url("https://www.itprotoday.com/sites/itprotoday.com/files/styles/article_featured_retina/public/programming%20evolution.jpg?itok=WTj9-yNz");
+	margin-bottom: 20px;
+
+	h1 {
+		border-top: #282c34 4px solid;
+		font-size: 50px;
+		padding: 30px 0 30px;
+		margin-bottom: 0;
+		color: white;
+	}
+
+	.navbar {
+		margin-bottom: 20px;
+		border-bottom: #282c34 4px solid;
+		padding: 5px 0 5px;
+		text-align: start;
+
+		&__links {
+			padding: 0 10px 0 10px;
+			text-decoration: none;
+			transition: 0.5s all;
+			text-transform: uppercase;
+			color: white;
+			font-weight: 700;
+
+			&:hover {
+				background-color: coral;
+			}
+		}
+	}
+}
+
+.create-edit {
+	height: 80vh;
+
+	&__title {
+		padding: 20px 0 20px 0;
+		font-size: 30px;
+		font-weight: 700;
+		margin-bottom: 30px;
+	}
+	.selected-course{
+		display: flex;
+		justify-content: start;
+		align-items: start;
+		.avatar{
+			width: 40%;
+			padding-left: 10px;
+			img{
+				width: 100%;
+			}
+		}
+		.text-block{
+			padding-left: 20px;
+			width: 60%;
+			.text-item{
+				text-align: start;
+				margin-bottom: 30px;
+				&-title {
+					display: inline-block;
+					font-weight: 800;
+				}
+				&-description {
+					display: inline-block;
+				}
+			}
+		}
+
+	}
+}
+
+.create-edit-form {
+	margin: 0 auto;
+	width: 60%;
+
+	.input-wrapper {
+		margin-bottom: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+
+		input {
+			border: lightgrey 2px solid;
+			width: 100%;
+			padding: 3px 10px 3px;
+			border-radius: 3px;
+			height: 20px;
+		}
+
+		textarea {
+			border-radius: 3px;
+			border: lightgrey 2px solid;
+			width: 103%;
+		}
+
+		label {
+			margin-bottom: 4px;
+			font-size: 13px;
+		}
+	}
+
+	button {
+		padding: 6px 10px 6px;
+		background-color: lightskyblue;
+		transition: 0.5s all;
+		font-size: 16px;
+
+		&:hover {
+			cursor: pointer;
+			background-color: cornflowerblue;
+			transform: scale(1.05);
+			color: white;
+		}
+	}
+}
+
+
+.home {
+
+	.sort {
+		display: flex;
+		flex-direction: row-reverse;
+		padding: 0 20px 40px 20px;
+
+		button {
+			padding: 5px;
+			background-color: lightskyblue;
+			transition: 0.5s all;
+
+			&:hover {
+				cursor: pointer;
+				background-color: cornflowerblue;
+				transform: scale(1.05);
+				color: white;
+			}
+		}
+	}
+}
+
+.course {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+
+	&__avatar {
+		position: relative;
+		width: 35%;
+		height: 400px;
+		margin-left: 20px;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			max-height: 100%;
+			max-width: 100%;
+			display: block;
+			margin: 0 auto;
+		}
+
+		&:nth-child(6) {
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	&__text-block {
+		margin-left: 20px;
+		width: 50%;
+		font-size: 14px;
+
+		.text-item {
+			vertical-align: top;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			margin-bottom: 20px;
+
+			&:first-child {
+				align-items: end;
+			}
+
+			&-title {
+				width: 20%;
+				text-align: right;
+				font-weight: 700;
+			}
+
+			&-description {
+				padding-left: 10px;
+				width: 80%;
+				text-align: left;
+
+				span {
+					font-size: 20px;
+					font-weight: 700;
+				}
+
+			}
+
+		}
+	}
+}
