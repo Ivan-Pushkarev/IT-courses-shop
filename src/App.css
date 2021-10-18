@@ -41,7 +41,7 @@ header .navbar__links:hover {
 }
 
 .create-edit {
-  height: 80vh;
+  min-height: 80vh;
 }
 .create-edit__title {
   padding: 20px 0 20px 0;
@@ -51,8 +51,8 @@ header .navbar__links:hover {
 }
 .create-edit .selected-course {
   display: flex;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .create-edit .selected-course .avatar {
   width: 40%;
@@ -68,18 +68,38 @@ header .navbar__links:hover {
 .create-edit .selected-course .text-block .text-item {
   text-align: start;
   margin-bottom: 30px;
+  font-size: 18px;
 }
 .create-edit .selected-course .text-block .text-item-title {
   display: inline-block;
   font-weight: 800;
+  padding-right: 5px;
 }
 .create-edit .selected-course .text-block .text-item-description {
   display: inline-block;
+}
+.create-edit .buttons-wrapper {
+  margin-top: 50px;
+  padding-bottom: 30px;
+}
+.create-edit .buttons-wrapper button {
+  padding: 6px 10px 6px;
+  background-color: lightskyblue;
+  transition: 0.5s all;
+  font-size: 16px;
+  margin: 0 15px 0 15px;
+}
+.create-edit .buttons-wrapper button:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+  transform: scale(1.05);
+  color: white;
 }
 
 .create-edit-form {
   margin: 0 auto;
   width: 60%;
+  padding-bottom: 50px;
 }
 .create-edit-form .input-wrapper {
   margin-bottom: 30px;
@@ -97,7 +117,7 @@ header .navbar__links:hover {
 .create-edit-form .input-wrapper textarea {
   border-radius: 3px;
   border: lightgrey 2px solid;
-  width: 103%;
+  width: 102%;
 }
 .create-edit-form .input-wrapper label {
   margin-bottom: 4px;
@@ -116,6 +136,9 @@ header .navbar__links:hover {
   color: white;
 }
 
+.home {
+  padding-bottom: 50px;
+}
 .home .sort {
   display: flex;
   flex-direction: row-reverse;
@@ -125,6 +148,8 @@ header .navbar__links:hover {
   padding: 5px;
   background-color: lightskyblue;
   transition: 0.5s all;
+  margin-left: 10px;
+  border-radius: 3px;
 }
 .home .sort button:hover {
   cursor: pointer;

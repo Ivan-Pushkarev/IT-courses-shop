@@ -5,7 +5,7 @@ const initialList = [
         description: "Не можете выбрать между React, Angular и Vue? Не мучайте себя, в этом курсе мы пойдём другим путём" +
             " и напишем наш собственный JS framework",
         price: '1999',
-        date: '1.09.2021',
+        date: '1.9.2021',
         avatar: "https://habrastorage.org/files/17c/5a2/a60/17c5a2a601e64fe7abbd3e4c5c6df218.jpeg"
     },
     {
@@ -13,7 +13,7 @@ const initialList = [
         name: "Удивительный мир программирования",
         description: "Курс будет полезен тем, кто только делает свои первые шаги в области программирования",
         price: '500',
-        date: '10.07.2020',
+        date: '10.7.2020',
         avatar: "https://www.meme-arsenal.com/memes/c84003f5eb2598f4fd0032db628a089f.jpg"
     },
     {
@@ -48,7 +48,7 @@ const initialList = [
             " сталкивается" +
             " каждый разработчик и научимся находить правильный выход",
         price: '800',
-        date: '6.10.2021',
+        date: '1.8.2022',
         avatar: "https://s00.yaplakal.com/pics/pics_original/8/3/2/5691238.jpg"
     },
 ]

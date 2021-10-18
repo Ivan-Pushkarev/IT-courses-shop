@@ -9,8 +9,9 @@ import CreateForm from "./CreateForm";
 import CoursePage from "./CoursePage";
 import Home from "./Home";
 import {useState} from "react";
-import initialList from "./mocklist";
+import mockList from "./mocklist";
 
+const initialList = JSON.parse(sessionStorage.getItem('courses'))||mockList
 
 function App() {
     const [list, setList] = useState(initialList)
@@ -20,10 +21,17 @@ function App() {
         setList(newList)
     }
     
-    const updateCourseById = (id, course) => {
+    const updateCourseById = (course, id) => {
         const newList = list.map(el=>el.id===id ? {...course}:el)
         setList(newList)
     }
+    
+    const deleteCourseById = (id) => {
+        const newList = list.filter(el=>el.id!==id)
+        setList(newList)
+    }
+    
+    sessionStorage.setItem('courses', JSON.stringify(list))
     
     return (
         <BrowserRouter>
@@ -42,7 +50,9 @@ function App() {
                          <CreateForm addNewCourse={addNewCourse}/>
                         </Route>
                         <Route path ='/course/:courseId'>
-                            <CoursePage list={list} updateCourseById={updateCourseById}/>
+                            <CoursePage list={list}
+                                        updateCourseById={updateCourseById}
+                                        deleteCourseById={deleteCourseById}/>
                         </Route>
                         <Route path ='/'>
                             <Home list={list}/>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 function InputsBlock(props) {
-    const {initialCourse, updateFunction, history} = props
+    const {initialCourse, updateFunction, history, create, editButtonHandler} = props
     const [course, setCourse] = useState(initialCourse)
     
     const handleChange = (e) => {
@@ -10,8 +10,9 @@ function InputsBlock(props) {
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        updateFunction(course)
-        history.push('/')
+        updateFunction(course, course.id)
+        if(create) history.push('/')
+        else editButtonHandler()
     }
     
     return (

@@ -3,12 +3,21 @@ import {useHistory, withRouter} from "react-router-dom";
 import InputsBlock from "./InputsBlock";
 
 function CoursePage(props) {
-    const {list, updateCourseById} = props
+    const {list, updateCourseById, deleteCourseById} = props
     const [edit, setEdit]= useState(false)
-    const courseId = props.match.params.courseId
+    const courseId = +props.match.params.courseId
   
-    const initialCourse = list.find(el=>el.id===+courseId)
+    const initialCourse = list.find(el=>el.id===courseId)
     const history = useHistory()
+    
+    const deleteButtonHandler = () => {
+        deleteCourseById(courseId)
+        history.push('/')
+    }
+    
+    const editButtonHandler = () => {
+        setEdit(prev=>!prev)
+    }
    
     return (
         <div className="create-edit">
@@ -32,12 +41,17 @@ function CoursePage(props) {
                     </div>
                 </div>
             </div>
+            <div className="buttons-wrapper">
+                <button onClick={editButtonHandler}>Edit course</button>
+                <button onClick={deleteButtonHandler}>Delete course</button>
+            </div>
             {
                 edit && <InputsBlock initialCourse={initialCourse}
                                      updateFunction={updateCourseById}
-                                     history={history}/>
+                                     history={history}
+                                     editButtonHandler={editButtonHandler}/>
+              
             }
-    
         </div>
     );
 }

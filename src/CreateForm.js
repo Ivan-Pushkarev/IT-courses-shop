@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useHistory, withRouter} from "react-router-dom";
 import InputsBlock from "./InputsBlock";
 
@@ -19,7 +19,8 @@ function CreateForm(props) {
             <div className="create-edit__title">Create course form</div>
             <InputsBlock initialCourse={initialCourse}
                          updateFunction={addNewCourse}
-                         history={history}/>
+                         history={history}
+                         create={true}/>
         
         </div>
     );

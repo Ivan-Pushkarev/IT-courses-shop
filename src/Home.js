@@ -1,31 +1,54 @@
 import Course from "./Course";
 import {withRouter} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function Home(props) {
     const {list} = props
     const [order, setOrder] = useState(null)
     
-    const sortHandler = () => {
-        if(order==="Descending") setOrder('Ascending')
-        else if(order==="Ascending") setOrder('Descending')
-        else setOrder('Descending')
+    useEffect(() => {
+    
+    }, []);
+    
+    const priceSortHandler = () => {
+        if(order==="priceDescending") setOrder('priceAscending')
+        else if(order==="priceAscending") setOrder('priceDescending')
+        else setOrder('priceDescending')
     }
-    const compare = (a, b) => {
-        if(order==='Descending'){
-            return +a.price > +b.price? -1:1
-        } else if(order==='Ascending'){
-            return +a.price > +b.price? 1:-1
-        }
-        return 0
+    const dateSortHandler = () => {
+        if(order==="dateDescending") setOrder('dateAscending')
+        else if(order==="dateAscending") setOrder('dateDescending')
+        else setOrder('dateDescending')
     }
     
+    const dateModifier = (date) => {
+        const arr= date.split('.')
+        return +arr[0] + arr[1]*30 + arr[2]*365
+    }
+    
+    const compare = (a, b) => {
+        switch (order) {
+            case 'priceDescending':
+                return +a.price > +b.price? -1:1
+            case 'priceAscending':
+                return +a.price > +b.price? 1:-1
+            case 'dateDescending':
+                return dateModifier(a.date) > dateModifier(b.date)? 1:-1
+            case 'dateAscending':
+                return dateModifier(a.date) > dateModifier(b.date)? -1:1
+            default: return 0
+        }
+    }
+    console.log(list)
     return (
         <div className="home">
             <div className="sort">
-                <button onClick={sortHandler}>Sort by price: {order === null ? 'Descending' :
-                    order === 'Descending' ? 'Ascending' : 'Descending'}</button>
+                <button onClick={priceSortHandler}>Sort by price: {order === 'priceAscending' ? 'Descending' :
+                    order === 'priceDescending' ? 'Ascending' : 'Descending'}</button>
+                <button onClick={dateSortHandler}>Sort by start date: {order === 'dateAscending' ? 'Latest first' :
+                    order === 'dateDescending' ? 'Earliest first' : 'Latest first'}</button>
             </div>
+           
             {
                 list
                     .sort(compare)
