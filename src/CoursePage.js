@@ -5,6 +5,7 @@ import InputsBlock from "./InputsBlock";
 function CoursePage(props) {
     const {list, updateCourseById, deleteCourseById} = props
     const [edit, setEdit]= useState(false)
+    
     const courseId = +props.match.params.courseId
   
     const initialCourse = list.find(el=>el.id===courseId)

@@ -22,7 +22,7 @@ const initialList = [
         description: "Концепции и лучшие практики. Структурирование системы разработки программного" +
             " обеспечения, взаимодействие элементов этой системы",
         price: '3999',
-        date: '1.1.2020',
+        date: '25.1.2021',
         avatar: "https://raw.githubusercontent.com/xintrea/mytetra_syncro/master/base/14464637150ps3vcchj1/image23795.png"
     },
     {

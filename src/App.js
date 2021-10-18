@@ -44,7 +44,6 @@ function App() {
                             <Link to="/create-new-course" className="navbar__links">CreateForm</Link>
                         </div>
                     </header>
-                   
                     <Switch>
                         <Route path ='/create-new-course'>
                          <CreateForm addNewCourse={addNewCourse}/>
@@ -58,7 +57,6 @@ function App() {
                             <Home list={list}/>
                         </Route>
                     </Switch>
-                
                 </div>
             </Router>
         </BrowserRouter>

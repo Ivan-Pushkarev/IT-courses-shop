@@ -41,7 +41,7 @@ header .navbar__links:hover {
 }
 
 .create-edit {
-  min-height: 80vh;
+  min-height: 82vh;
 }
 .create-edit__title {
   padding: 20px 0 20px 0;
@@ -99,7 +99,7 @@ header .navbar__links:hover {
 .create-edit-form {
   margin: 0 auto;
   width: 60%;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 .create-edit-form .input-wrapper {
   margin-bottom: 30px;
@@ -138,6 +138,8 @@ header .navbar__links:hover {
 
 .home {
   padding-bottom: 50px;
+  min-height: 78vh;
+  position: relative;
 }
 .home .sort {
   display: flex;
@@ -156,6 +158,26 @@ header .navbar__links:hover {
   background-color: cornflowerblue;
   transform: scale(1.05);
   color: white;
+}
+.home .pagination {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.home .pagination button {
+  padding: 4px 9px;
+  background-color: lightskyblue;
+  transition: 0.5s all;
+  border-radius: 3px;
+}
+.home .pagination button:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+  color: white;
+}
+.home .pagination button.current-page {
+  transform: scale(1.2);
 }
 
 .course {
