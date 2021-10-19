@@ -1,16 +1,12 @@
 import Course from "./Course";
 import {withRouter} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 function Home(props) {
     const {list} = props
     const [order, setOrder] = useState(null)
     const [page, setPage] = useState(1)
-    
-    useEffect(() => {
-    
-    }, []);
-    
+   
     const priceSortButtonHandler = () => {
         if (order === "priceDescending") setOrder('priceAscending')
         else if (order === "priceAscending") setOrder('priceDescending')
