@@ -11,12 +11,14 @@ function Home(props) {
         if (order === "priceDescending") setOrder('priceAscending')
         else if (order === "priceAscending") setOrder('priceDescending')
         else setOrder('priceDescending')
+        setPage(1)
     }
     
     const dateSortButtonHandler = () => {
         if (order === "dateDescending") setOrder('dateAscending')
         else if (order === "dateAscending") setOrder('dateDescending')
         else setOrder('dateDescending')
+        setPage(1)
     }
     
     const dateModifier = (date) => {
