@@ -179,6 +179,7 @@ header .navbar__links:hover {
   background-color: lightskyblue;
   transition: 0.5s all;
   border-radius: 3px;
+  border: 1px lightgrey solid;
 }
 .home .pagination button:hover {
   cursor: pointer;
