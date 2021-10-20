@@ -200,7 +200,8 @@ header {
 
 		}
 		button.current-page{
-			transform: scale(1.2);
+			background-color: cornflowerblue;
+			color: white;
 		}
 		.last-page{
 			margin-right: 54px;
@@ -213,6 +214,9 @@ header {
 				transform: translate( 100%, -30%);
 
 			}
+		}
+		.hidden{
+			display: none;
 		}
 	}
 }

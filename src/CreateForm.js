@@ -21,7 +21,6 @@ function CreateForm(props) {
                          updateFunction={addNewCourse}
                          history={history}
                          create={true}/>
-        
         </div>
     );
 }

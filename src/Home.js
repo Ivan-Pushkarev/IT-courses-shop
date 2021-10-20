@@ -9,7 +9,7 @@ function Home(props) {
     const [order, setOrder] = useState(null)
     const [page, setPage] = useState(1)
     const [coursesPerPage, setCoursesPerPage] = useState(2)
-    const lastPageNumber = Math.ceil(list.length/coursesPerPage)
+    const lastPageNumber = Math.ceil(list.length / coursesPerPage)
     
     const priceSortButtonHandler = () => {
         if (order === "priceDescending") setOrder('priceAscending')
@@ -49,14 +49,14 @@ function Home(props) {
                 return 0
         }
     }
-   
+    
     return (
         <div className="home">
             <div className="sort">
                 <div className="select">
                     <label htmlFor="pageSelect">Courses per page</label>
                     <select id="pageSelect" value={coursesPerPage}
-                        onChange={handleChange}>
+                            onChange={handleChange}>
                         {
                             amountPerPage.map(el => <option key={el} value={el}>{el}</option>)
                         }
@@ -71,7 +71,7 @@ function Home(props) {
             {
                 list
                     .sort(compare)
-                    .filter((el, i) => i >= coursesPerPage*(page-1) && i < coursesPerPage * page)
+                    .filter((el, i) => i >= coursesPerPage * (page - 1) && i < coursesPerPage * page)
                     .map(el => <Course key={el.id}
                                        course={el}/>)
             }
@@ -82,16 +82,16 @@ function Home(props) {
                     page > 1 && <button onClick={() => setPage(prev => prev - 1)}>{page - 1}</button>
                 }
                 <button className="current-page">{page}</button>
+                
+                <span className={page < lastPageNumber - 1 ? "last-page" : 'hidden'}>
+                    <button onClick={() => setPage(prev => prev + 1)}>{page + 1}</button>
+                </span>
                 {
-                    page * coursesPerPage < list.length-1 && <span className={page<lastPageNumber - 1 ? "last-page":''} >
-                    <button
-                        onClick={() => setPage(prev => prev + 1)}>{page + 1}</button>
-                    </span>
+                    page < lastPageNumber &&
+                    <button onClick={() => setPage(lastPageNumber)}>{lastPageNumber}</button>
                 }
-                {
-                    page+1 < lastPageNumber && <button onClick={() => setPage(lastPageNumber)}>{lastPageNumber}</button>
-                }
-                <button disabled={page * coursesPerPage >= list.length} onClick={() => setPage(prev => prev + 1)}>Next</button>
+                <button disabled={page * coursesPerPage >= list.length} onClick={() => setPage(prev => prev + 1)}>Next
+                </button>
             
             </div>
         </div>

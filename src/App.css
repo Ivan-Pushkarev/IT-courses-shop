@@ -186,7 +186,8 @@ header .navbar__links:hover {
   color: white;
 }
 .home .pagination button.current-page {
-  transform: scale(1.2);
+  background-color: cornflowerblue;
+  color: white;
 }
 .home .pagination .last-page {
   margin-right: 54px;
@@ -198,6 +199,9 @@ header .navbar__links:hover {
   position: absolute;
   right: -5px;
   transform: translate(100%, -30%);
+}
+.home .pagination .hidden {
+  display: none;
 }
 
 .course {
