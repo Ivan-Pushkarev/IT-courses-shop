@@ -1,13 +1,14 @@
 import React from 'react';
-import {Link, withRouter} from "react-router-dom";
+import {useHistory, withRouter} from "react-router-dom";
 
 function Course(props) {
     const {course} = props
+    const history = useHistory()
     return (
         <div className="course">
-            <Link to={`/course/${course.id}`} className="course__avatar">
-                <img src={course.avatar} alt={course.name}/>
-            </Link>
+            <div className="course__avatar">
+                <img src={course.avatar} alt={course.name} onClick={()=>history.push(`/course/${course.id}`)}/>
+            </div>
             <div className="course__text-block">
                 <div className="text-item">
                     <div className="text-item-title">Course name:</div>

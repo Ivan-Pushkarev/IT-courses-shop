@@ -79,7 +79,6 @@ header {
 				}
 			}
 		}
-
 	}
 	.buttons-wrapper{
 		margin-top: 50px;
@@ -111,7 +110,7 @@ header {
 		margin-bottom: 30px;
 		display: flex;
 		flex-direction: column;
-		align-items: start;
+		align-items: flex-start;
 
 		input {
 			border: lightgrey 2px solid;
@@ -150,13 +149,23 @@ header {
 
 
 .home {
-	padding-bottom: 50px;
+	padding-bottom: 100px;
 	min-height: 78vh;
 	position: relative;
 	.sort {
 		display: flex;
 		flex-direction: row-reverse;
 		padding: 0 20px 40px 20px;
+
+		.select{
+			margin-left: 20px;
+			label{
+				padding-right: 10px;
+			}
+			select{
+				padding: 5px;
+			}
+		}
 
 		button {
 			padding: 5px;
@@ -193,13 +202,25 @@ header {
 		button.current-page{
 			transform: scale(1.2);
 		}
+		.last-page{
+			margin-right: 54px;
+			position: relative;
+			&:before{
+				content: '........';
+				font-size: 20px;
+				position: absolute;
+				right: -5px;
+				transform: translate( 100%, -30%);
+
+			}
+		}
 	}
 }
 
 .course {
 	display: flex;
 	justify-content: flex-start;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 
 	&__avatar {
 		position: relative;
@@ -208,6 +229,7 @@ header {
 		margin-left: 20px;
 
 		img {
+			cursor: pointer;
 			position: absolute;
 			top: 0;
 			left: 0;

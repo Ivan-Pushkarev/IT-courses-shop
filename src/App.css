@@ -105,7 +105,7 @@ header .navbar__links:hover {
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 .create-edit-form .input-wrapper input {
   border: lightgrey 2px solid;
@@ -137,7 +137,7 @@ header .navbar__links:hover {
 }
 
 .home {
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   min-height: 78vh;
   position: relative;
 }
@@ -145,6 +145,15 @@ header .navbar__links:hover {
   display: flex;
   flex-direction: row-reverse;
   padding: 0 20px 40px 20px;
+}
+.home .sort .select {
+  margin-left: 20px;
+}
+.home .sort .select label {
+  padding-right: 10px;
+}
+.home .sort .select select {
+  padding: 5px;
 }
 .home .sort button {
   padding: 5px;
@@ -179,11 +188,22 @@ header .navbar__links:hover {
 .home .pagination button.current-page {
   transform: scale(1.2);
 }
+.home .pagination .last-page {
+  margin-right: 54px;
+  position: relative;
+}
+.home .pagination .last-page:before {
+  content: "........";
+  font-size: 20px;
+  position: absolute;
+  right: -5px;
+  transform: translate(100%, -30%);
+}
 
 .course {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .course__avatar {
   position: relative;
@@ -192,6 +212,7 @@ header .navbar__links:hover {
   margin-left: 20px;
 }
 .course__avatar img {
+  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
