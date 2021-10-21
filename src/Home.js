@@ -3,6 +3,7 @@ import {withRouter} from "react-router-dom";
 import {useState} from "react";
 
 const amountPerPage = ['1', '2', '3', '4', '5', '6']
+const sortOptions = ['price: Descending', 'price Ascending', 'start date: Earliest first', 'start date: Latest first']
 
 function Home(props) {
     const {list} = props
@@ -11,22 +12,15 @@ function Home(props) {
     const [coursesPerPage, setCoursesPerPage] = useState(2)
     const lastPageNumber = Math.ceil(list.length / coursesPerPage)
     
-    const priceSortButtonHandler = () => {
-        if (order === "priceDescending") setOrder('priceAscending')
-        else if (order === "priceAscending") setOrder('priceDescending')
-        else setOrder('priceDescending')
-        setPage(1)
-    }
     
-    const dateSortButtonHandler = () => {
-        if (order === "dateDescending") setOrder('dateAscending')
-        else if (order === "dateAscending") setOrder('dateDescending')
-        else setOrder('dateDescending')
-        setPage(1)
-    }
     
-    const handleChange = (e) => {
+    const handlePageChange = (e) => {
         setCoursesPerPage(e.target.value)
+        setPage(1)
+    }
+    
+    const handleSortChange = (e) => {
+        setOrder(e.target.value)
         setPage(1)
     }
     
@@ -35,15 +29,19 @@ function Home(props) {
         return +arr[0] + arr[1] * 30 + arr[2] * 365
     }
     
+    const perPageHandler = (el, i) => {
+        return i >= coursesPerPage * (page - 1) && i < coursesPerPage * page
+    }
+    
     const compare = (a, b) => {
         switch (order) {
-            case 'priceDescending':
+            case 'price: Descending':
                 return +a.price > +b.price ? -1 : 1
-            case 'priceAscending':
+            case 'price Ascending':
                 return +a.price > +b.price ? 1 : -1
-            case 'dateDescending':
+            case 'start date: Earliest first':
                 return dateModifier(a.date) > dateModifier(b.date) ? 1 : -1
-            case 'dateAscending':
+            case 'start date: Latest first':
                 return dateModifier(a.date) > dateModifier(b.date) ? -1 : 1
             default:
                 return 0
@@ -56,28 +54,32 @@ function Home(props) {
                 <div className="select">
                     <label htmlFor="pageSelect">Courses per page</label>
                     <select id="pageSelect" value={coursesPerPage}
-                            onChange={handleChange}>
+                            onChange={handlePageChange}>
                         {
                             amountPerPage.map(el => <option key={el} value={el}>{el}</option>)
                         }
                     </select>
                 </div>
-                <button onClick={priceSortButtonHandler}>Sort by price: {order === 'priceAscending' ? 'Descending' :
-                    order === 'priceDescending' ? 'Ascending' : 'Descending'}</button>
-                <button onClick={dateSortButtonHandler}>
-                    Sort by start date: {order === 'dateAscending' ? 'Latest first' :
-                    order === 'dateDescending' ? 'Earliest first' : 'Latest first'}</button>
+                <div className="select">
+                    <label htmlFor="sort">Sort courses by</label>
+                    <select id="sort" value={order}
+                            onChange={handleSortChange}>
+                        {
+                            sortOptions.map(el => <option key={el} value={el}>{el}</option>)
+                        }
+                    </select>
+                </div>
             </div>
             {
                 list
                     .sort(compare)
-                    .filter((el, i) => i >= coursesPerPage * (page - 1) && i < coursesPerPage * page)
+                    .filter(perPageHandler)
                     .map(el => <Course key={el.id}
                                        course={el}/>)
             }
             <div className="pagination">
                 <h3>number of courses: {list.length}</h3>
-                <button disabled={page === 1} onClick={() => setPage(prev => prev - 1)}>Prev</button>
+                <button disabled={page === 1} onClick={() => setPage(prev => prev - 1)}>◀</button>
                 {
                     page > 1 && <button onClick={() => setPage(prev => prev - 1)}>{page - 1}</button>
                 }
@@ -90,7 +92,8 @@ function Home(props) {
                     page < lastPageNumber &&
                     <button onClick={() => setPage(lastPageNumber)}>{lastPageNumber}</button>
                 }
-                <button disabled={page * coursesPerPage >= list.length} onClick={() => setPage(prev => prev + 1)}>Next
+                <button disabled={page * coursesPerPage >= list.length}
+                        onClick={() => setPage(prev => prev + 1)}>▶
                 </button>
             
             </div>
